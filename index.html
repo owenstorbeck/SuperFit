@@ -1,0 +1,58 @@
+<!-- Author: Owen Storbeck -->
+<!-- Filename: index.htmk -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SuperFit Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <button onclick="location.href='home.html'">Home</button>
+    <button onclick="location.href='session.html'">Session</button>
+    <button onclick="location.href='calendar.html'">Calendar</button>
+    <button onclick="location.href='analysis.html'">Analysis</button>
+  </nav>
+
+  <div class="container">
+    <div class="user-info">
+      <h2>User Information</h2>
+      <form id="userForm">
+        <label>Username:</label><input type="text" name="Username" />
+        <label>Email:</label><input type="email" name="Email" />
+        <label>Phone:</label><input type="tel" name="Phone" />
+        <label>Days Active:</label><input type="number" name="Days Active" />
+        <label>Weight:</label><input type="number" name="Weight" />
+        <label>Experience:</label><input type="text" name="Experience" />
+        <label>Review:</label><textarea name="Review"></textarea>
+        <label>Socials:</label><input type="text" name="Socials" />
+        <button type="button" id="updateBtn">Update Info</button>
+      </form>
+      <div id="userSummary"></div>
+    </div>
+
+    <div class="subscription">
+      <h2>Subscription Plan</h2>
+      <p>Payment Info:</p>
+    </div>
+
+    <div class="faqs">
+      <h2>FAQs</h2>
+      <ul>
+        <li><strong>Cancel anytime?</strong> YES! You can cancel anytime.</li>
+        <li><strong>Workout benefits?</strong> YES! Track your progress and benefits.</li>
+        <li><strong>Social Media?</strong> YES! Post your progress to your favorite platform.</li>
+        <li><strong>Recommend a friend?</strong> YES! Reviews will be visible on the Play Store.</li>
+      </ul>
+    </div>
+
+    <div class="runner-graphic">
+      <img src="runner.png" alt="Running figure" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
