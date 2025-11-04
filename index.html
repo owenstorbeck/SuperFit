@@ -9,11 +9,36 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="navbar">
-    <button onclick="location.href='home.html'">Home</button>
-    <button onclick="location.href='session.html'">Session</button>
-    <button onclick="location.href='calendar.html'">Calendar</button>
-    <button onclick="location.href='analysis.html'">Analysis</button>
+  <nav
+      id="nav"
+      class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-center"
+    >
+      <a class="navbar-brand" href="#">SuperFit</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="navbarNavAltMarkup"
+      >
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#"
+            >Sessions <span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link" href="Profile.html">Profile</a>
+          <a class="nav-item nav-link" href="Analytics.html">Analytics</a>
+        </div>
+      </div>
   </nav>
 
   <div class="container">
