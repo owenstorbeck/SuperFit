@@ -30,13 +30,48 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "user-info"
+    "runner"
+    "subscription"
+    "faqs";
+  grid-template-columns: 1fr;
   gap: 2rem;
   padding: 2rem;
+  max-width: 800px;
+  margin: auto;
 }
 
-.user-info, .subscription, .faqs {
+.user-info {
+  grid-area: user-info;
   background-color: #cce4ff;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.runner-graphic {
+  grid-area: runner;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.runner-graphic img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.subscription {
+  grid-area: subscription;
+  background-color: #cce4ff;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.faqs {
+  grid-area: faqs;
+  background-color: #d9f4ff;
   padding: 1.5rem;
   border-radius: 10px;
 }
@@ -73,23 +108,4 @@ form input, form textarea {
 
 #updateBtn:hover {
   background-color: #005fa3;
-}
-
-#userSummary {
-  margin-top: 1.5rem;
-  background-color: #f0faff;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.runner-graphic {
-  grid-column: 2 / 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.runner-graphic img {
-  max-width: 100%;
-  height: auto;
 }
