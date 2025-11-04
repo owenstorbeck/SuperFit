@@ -1,38 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
   const updateBtn = document.getElementById("updateBtn");
   const form = document.getElementById("userForm");
-  const summary = document.getElementById("userSummary");
 
-  updateBtn.addEventListener("click", () => {
-    const formData = new FormData(form);
-    let output = "<h3>Your Updated Info:</h3><ul>";
-
-    formData.forEach((value, key) => {
-      output += `<li><strong>${key}:</strong> ${value}</li>`;
-    });
-
-    output += "</ul>";
-    summary.innerHTML = output;
-
-    const userData = {};
-    formData.forEach((value, key) => {
-      userData[key] = value;
-    });
-    localStorage.setItem("superFitUser", JSON.stringify(userData));
+  // Load saved data into form
+  const savedData = JSON.parse(localStorage.getItem("superFitUser")) || {};
+  Object.entries(savedData).forEach(([key, value]) => {
+    const input = form.querySelector(`[name="${key}"]`);
+    if (input) input.value = value;
   });
 
-  const savedData = JSON.parse(localStorage.getItem("superFitUser"));
-  if (savedData) {
-    Object.entries(savedData).forEach(([key, value]) => {
-      const input = form.querySelector(`[name="${key}"]`);
-      if (input) input.value = value;
+  // Update only the customer-typed fields
+  updateBtn.addEventListener("click", () => {
+    const inputs = form.querySelectorAll("input, textarea");
+    const updatedData = { ...savedData };
+
+    inputs.forEach(input => {
+      if (input.value.trim() !== "") {
+        updatedData[input.name] = input.value.trim();
+      }
     });
 
-    let output = "<h3>Your Saved Info:</h3><ul>";
-    Object.entries(savedData).forEach(([key, value]) => {
-      output += `<li><strong>${key}:</strong> ${value}</li>`;
-    });
-    output += "</ul>";
-    summary.innerHTML = output;
-  }
+    localStorage.setItem("superFitUser", JSON.stringify(updatedData));
+    alert("Your info has been updated!");
+  });
 });
